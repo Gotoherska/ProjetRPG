@@ -46,13 +46,22 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\scripts\terrainDisplayer.cs" />
+     <Compile Include="Assets\scripts\terrainGenerationStrategy1.cs" />
      <Compile Include="Assets\scripts\terrainGenerator.cs" />
+     <Compile Include="Assets\scripts\terrainGeneratorStartegyRandom.cs" />
+     <Compile Include="Assets\scripts\terrainGeneratorStrategy.cs" />
      <Compile Include="Assets\scripts\testTerrainInit.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>/opt/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/opt/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/opt/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/opt/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

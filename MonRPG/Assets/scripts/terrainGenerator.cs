@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
+using terrainGenerationStrategies;
 
 namespace terrain
 {
@@ -44,11 +45,28 @@ namespace terrain
 	}
 	public class terrainGenerator : MonoBehaviour {
 
+		public terrainGeneratorStrategy generator;
+		public string generatorChoice;
+
+		
+		void Awake()
+		{
+			switch(generatorChoice)
+			{
+			case "1":
+				generator = GetComponent<terrainGenerationStrategy1>();
+
+			default:
+				generator = GetComponent<terrainGeneratorStartegyRandom>();
+			}
+		}
+
 		//world heigth limit 
 		public int z = 0;
 
 		public void GenerateChunk(int x, int y, Chunk c){
-			c.Reset ();
+			generator.GenerateChunk (x, y, c);
+			/*c.Reset ();
 			foreach(List<List<int>> l in c.tiles)
 			{	
 				foreach(List<int> ll in l)
@@ -59,7 +77,7 @@ namespace terrain
 						ll.Add(e);
 					}
 				}
-			}
+			}*/
 		}
 		public void GetChunk(int x, int y, Chunk c){
 			//no save system yet

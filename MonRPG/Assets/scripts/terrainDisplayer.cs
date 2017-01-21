@@ -11,13 +11,13 @@ public class terrainDisplayer : MonoBehaviour {
 	
 	public GameObject[] grass;
 	public GameObject[] water;
-	public GameObject[] wall;
 	public Chunk chunk;
 	private bool init = false;
 	
 	//length and width of the tiles for adjustments
 	float strechX = 2.5f;
 	float strechY = 2.5f;
+	float wallSize = 2f;
 
 	int viewLevel;
 	
@@ -94,7 +94,7 @@ public class terrainDisplayer : MonoBehaviour {
 				//Debug.Log("Y: " + posy);
 					//tiles
 					post = new Vector3(posx * strechX, 
-					                   (posy - posz) * strechY, 
+					                   (posy - (posz * wallSize)) * strechY, 
 					                  posz);
 
 					if(tile != 0)
