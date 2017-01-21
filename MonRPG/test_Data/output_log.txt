@@ -1,0 +1,26 @@
+Mono path[0] = 'C:/Users/Antec/Downloads/Projet/ProjetRPG/MonRPG/test_Data/Managed'
+Mono path[1] = 'C:/Users/Antec/Downloads/Projet/ProjetRPG/MonRPG/test_Data/Mono'
+Mono config path = 'C:/Users/Antec/Downloads/Projet/ProjetRPG/MonRPG/test_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Antec/Downloads/Projet/ProjetRPG/MonRPG/test_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55013
+Multi-casting "[IP] 192.168.0.15 [Port] 55013 [Flags] 2 [Guid] 310706065 [EditorId] 3940572881 [Version] 1048832 [Id] WindowsPlayer(Herska-PC) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.0.15:55013]
+Initialize engine version: 5.2.5f1 (ad2d0368e248)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 1060 3GB (ID=0x1c02)
+    Vendor:   NVIDIA
+    VRAM:     3035 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Antec\Downloads\Projet\ProjetRPG\MonRPG\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Antec\Downloads\Projet\ProjetRPG\MonRPG\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Antec\Downloads\Projet\ProjetRPG\MonRPG\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Antec\Downloads\Projet\ProjetRPG\MonRPG\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Antec\Downloads\Projet\ProjetRPG\MonRPG\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Antec\Downloads\Projet\ProjetRPG\MonRPG\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Antec\Downloads\Projet\ProjetRPG\MonRPG\test_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.054 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.

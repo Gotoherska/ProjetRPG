@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/terrainDisplayer.cs">
+    <Files>
+      <File FileName="Assets/scripts/terrainDisplayer.cs" Line="42" Column="20" />
+      <File FileName="Assets/scripts/terrainGenerator.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

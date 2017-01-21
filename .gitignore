@@ -1,20 +1,35 @@
-/blib/
-/.build/
-_build/
-cover_db/
-inc/
-Build
-!Build/
-Build.bat
-.last_cover_stats
-/Makefile
-/Makefile.old
-/MANIFEST.bak
-/META.yml
-/META.json
-/MYMETA.*
-nytprof.out
-/pm_to_blib
-*.o
-*.bs
-/_eumm/
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+/[Ll]ibrary/
+sysinfo.txt
+*.stackdump
+ 
+# ============================================= #
+# Visual Studio / MonoDevelop / Rider generated #
+# ============================================= #
+[Ee]xported[Oo]bj/
+.vs/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+/.idea*/
+ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
