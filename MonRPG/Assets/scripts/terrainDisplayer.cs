@@ -94,8 +94,8 @@ public class terrainDisplayer : MonoBehaviour {
 				//Debug.Log("Y: " + posy);
 					//tiles
 					post = new Vector3(posx * strechX, 
-					                   (posy - (posz * wallSize)) * strechY, 
-					                  posz);
+					                   (posy + (posz * wallSize)) * strechY, 
+					                  -posz);
 
 					if(tile != 0)
 					{
