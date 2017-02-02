@@ -54,11 +54,9 @@ namespace terrain
 			if (generator == null) {
 				switch (generatorChoice) {
 				case "1":
-					//Debug.Log ("CHOICE terrainGenerationStrategy1");
 					generator = GetComponent<terrainGenerationStrategy1> ();
 					break;
 				default:
-					//Debug.Log ("CHOICE terrainGeneratorStartegyRandom");
 					generator = GetComponent<terrainGeneratorStartegyRandom> ();
 					break;
 				}
@@ -67,14 +65,11 @@ namespace terrain
 		
 		void Awake ()
 		{
-			//Debug.Log ("AWAKE");
 			setGenerator ();
 		}
 
-
 		public void GenerateChunk (int x, int y, Chunk c)
 		{
-			//Debug.Log ("GENERATION");
 			setGenerator ();
 			generator.GenerateChunk (x, y, c, seed);
 		}
