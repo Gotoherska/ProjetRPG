@@ -5,18 +5,15 @@ using terrain;
 public class PlayerManager : MonoBehaviour {
 	public float speed;	
 	private Rigidbody2D rb2d;
-	//heigth in the chunk
-	public int zLevel = 4;
 	//chunk number
 	public int x = 0;
 	public int y = 0;
-	private terrainDisplayer displayer;
+	private TerrainDisplayer displayer;
 
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
-		displayer = GetComponentInParent<terrainDisplayer> ();
-		displayer.changeViewLevel (zLevel);
+		displayer = GetComponentInParent<TerrainDisplayer> ();
 		printBounds ();
 	}
 	void printBounds(){
@@ -24,25 +21,8 @@ public class PlayerManager : MonoBehaviour {
 		Debug.Log ("y: " + displayer.minY + " ; " + displayer.maxY);
 	}
 
-	void Up(){
-		bool up = displayer.changeViewLevelInc ();
-		if (up) {
-			zLevel ++;
-			rb2d.MovePosition (rb2d.position + new Vector2 (0, displayer.wallSize));
-		}
-		printBounds ();
-	}
-	void Down(){
-		bool down = displayer.changeViewLevelDec ();
-		if (down) {
-			zLevel --;
-			rb2d.MovePosition (rb2d.position + new Vector2 (0, -displayer.wallSize));
-		}
-		printBounds ();
-	}
-	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.tag == "water")
-			Debug.Log ("plouf!");		
+
+	void OnCollisionEnter2D(Collision2D coll) {	
 	}
 
 	void LateUpdate()
@@ -54,13 +34,6 @@ public class PlayerManager : MonoBehaviour {
 		Vector2 mouvement = new Vector2 (moveHorizontal, moveVertical);
 		mouvement *= speed;
 		rb2d.velocity = mouvement;
-		
-		if (Input.GetKeyDown (KeyCode.P)) {
-				Up();
-		}
-			if (Input.GetKeyDown (KeyCode.M)) {
-				Down();
-		}
 
 		//check position
 		Vector2 pos = rb2d.position;

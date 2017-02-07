@@ -1,10 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PlayerManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/TerrainDisplayer.cs">
     <Files>
-      <File FileName="Assets/scripts/terrainDisplayer.cs" Line="162" Column="46" />
+      <File FileName="Assets/scripts/TestTerrainInit.cs" Line="13" Column="1" />
+      <File FileName="Assets/scripts/TerrainDisplayer.cs" Line="14" Column="9" />
+      <File FileName="Assets/scripts/Chunk.cs" Line="48" Column="11" />
+      <File FileName="Assets/scripts/TerrainGenerationStrategy1.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/PlayerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/PlayerCollisions.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/TerrainGeneratorStartegyRandom.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/TerrainGeneratorStrategy.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/TerrainGenerator.cs" Line="39" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
