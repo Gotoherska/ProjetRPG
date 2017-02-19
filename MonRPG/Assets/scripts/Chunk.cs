@@ -7,8 +7,12 @@ using terrainGenerationStrategies;
 
 namespace terrain
 {
+	[Serializable]
 	public class Chunk
 	{
+		//TODO: separate chunk data and sprites
+		//chunkData: serializable
+		//chunkSprites: not serializable
 		//chunk size
 		public int lx = 10;
 		public int ly = 10;

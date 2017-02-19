@@ -11,7 +11,9 @@ namespace terrain
 		private TerrainGenerator generator;
 		public GameObject[] grass;
 		public GameObject[] dirt;
-		public Chunk chunk;
+//		public Chunk chunk;
+		public List<List<Chunk>> chunks;
+		public Vector2 currentChunk;
 		private bool init = false;
 		public int  chunkSize = 10;
 
@@ -27,7 +29,22 @@ namespace terrain
 		{
 			if (!init) {
 				generator = GetComponent<TerrainGenerator> ();
-				chunk = new Chunk (chunkSize,chunkSize,1);
+				//				chunk = new Chunk (chunkSize,chunkSize,1);
+				Chunk chunk = new Chunk (chunkSize,chunkSize,1);
+				chunks = new List<List<Chunk>>(3);
+				for(int i = 0; i < 3; i++)
+				{
+					List<Chunk> cl = new List<Chunk>(3);
+					for(int j = 0; j < 3; j++)
+					{
+						chunk = new Chunk (chunkSize,chunkSize,1);
+						cl.Add(chunk);
+					}
+					chunks.Add(cl);
+				}
+				//TODO: create nth dimension list in util namespace
+
+
 
 				minX = 0;
 				minY = 0;
@@ -37,25 +54,40 @@ namespace terrain
 				init = true;
 			}
 		}
-	
-		public void DisplayChunk (int x, int y)
+		public void DisplayChunks (int x, int y)
 		{
 			Init ();
-			generator.GetChunk (x, y, chunk);
+			int offsetx = -1;
+			Debug.Log("DISPLAY CHUNKS");
+			foreach (List<Chunk> l in chunks) {
+				int offsety = -1;
+				foreach (Chunk c in l) {
+					Debug.Log("chunk: " + x + offsetx + " : " + y + offsety);
+					DisplayChunk (c, x, y, offsetx, offsety);
+					offsety++;
+				}
+				offsetx++;
+			}
+		}
+		public void DisplayChunk (Chunk chunk, int x, int y, int offsetx, int offsety)
+		{
+			generator.GetChunk (x + offsetx, y + offsety, chunk);
 		
+			float blocOffsetx = offsetx * chunk.lx * blocSize;
+			float blocOffsety = offsety * chunk.ly * blocSize;
+
 			int posx = 0;
 			int posy = 0;
 			int posz = 0;
 			Vector3 posT;
 			GameObject t;
-
 			foreach (List<List<int>> lx in chunk.tiles) {
 				foreach (List<int> ly in lx) {
 					foreach (int lz in ly) {
 
 						posT.z = lz;
-						posT.x = posx * blocSize;
-						posT.y = posy * blocSize;
+						posT.x = posx * blocSize + blocOffsetx;
+						posT.y = posy * blocSize + blocOffsety;
 
 						if (lz != 0) {
 							if (lz == 1) {

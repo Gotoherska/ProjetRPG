@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour {
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		displayer = GetComponentInParent<TerrainDisplayer> ();
-		printBounds ();
+//		printBounds ();
 	}
 	void printBounds(){
 		Debug.Log("x: " + displayer.minX + " ; " + displayer.maxX);
@@ -59,7 +59,7 @@ public class PlayerManager : MonoBehaviour {
 			y--;
 		}
 		if(isOut){
-			displayer.DisplayChunk(x,y);
+			displayer.DisplayChunks(x,y);
 			rb2d.MovePosition(pos);
 		}
 	}

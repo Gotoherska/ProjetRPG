@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using terrain;
+using UnityEditor;
 
 public class TestTerrainInit : MonoBehaviour {
 
@@ -10,7 +11,11 @@ public class TestTerrainInit : MonoBehaviour {
 	{
 		//Debug.Log ("test terrain 01");
 		terrainDisplayer = GetComponent<TerrainDisplayer> ();
-		terrainDisplayer.DisplayChunk (0, 0);
+		TerrainGenerator tg = GetComponent<TerrainGenerator> ();
+		string s = tg.WorldDirectory();
+		Debug.Log ("DELETE WORLD DATA: " + s);
+		FileUtil.DeleteFileOrDirectory (s);
+		terrainDisplayer.DisplayChunks (0, 0);
 	}
 
 }

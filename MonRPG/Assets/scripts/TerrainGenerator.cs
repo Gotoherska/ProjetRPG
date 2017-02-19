@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 using terrainGenerationStrategies;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace terrain
 {
@@ -13,8 +15,9 @@ namespace terrain
 		private TerrainGeneratorStrategy generator = null;
 		public string generatorChoice;
 		public int seed;
+		public string world = "GenericWorldName";
 
-		private void setGenerator ()
+		private void checkGenerator ()
 		{
 			if (generator == null) {
 				switch (generatorChoice) {
@@ -30,19 +33,55 @@ namespace terrain
 		
 		void Awake ()
 		{
-			setGenerator ();
+			checkGenerator ();
 		}
 
 		public void GenerateChunk (int x, int y, Chunk c)
 		{
-			setGenerator ();
-			generator.GenerateChunk (x, y, c, seed);
+			checkGenerator ();
+
+			generator.GenerateChunk (x, y, c, seed);			
+			
+			BinaryFormatter bf = new BinaryFormatter ();
+			CheckWorldPath (x);
+			FileStream fs = File.Create (WorldPath(x,y));
+			bf.Serialize (fs, c);
+			fs.Close ();
 		}
 
 		public void GetChunk (int x, int y, Chunk c)
+		{			
+			BinaryFormatter bf = new BinaryFormatter ();
+			CheckWorldPath (x);
+			if (File.Exists (WorldPath(x,y))) {
+				FileStream fs = File.Open(WorldPath(x,y), FileMode.Open);
+				c = (Chunk) bf.Deserialize(fs);
+				fs.Close();
+			} else {
+				Debug.Log("GENERATE CHUNK :" + x + " : " + y);
+				GenerateChunk (x, y, c);
+			}
+		}
+		
+		private void CheckWorldPath(int x)
 		{
-			//no save system yet
-			GenerateChunk (x, y, c);
+			string path = WorldPathAux(x);
+			if(!Directory.Exists(path))
+			{    
+				Directory.CreateDirectory(path);				
+			}
+		}
+		public string WorldDirectory()
+		{
+			return Application.persistentDataPath + "/MyRPG/" + world;
+		}
+		private string WorldPathAux(int x)
+		{
+			return Application.persistentDataPath + "/MyRPG/" + world + "/" + x;
+		}
+		private string WorldPath(int x, int y)
+		{
+			return WorldPathAux(x) + "/" + y + ".dat";
 		}
 	}
 }
