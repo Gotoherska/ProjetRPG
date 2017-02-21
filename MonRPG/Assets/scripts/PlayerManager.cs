@@ -5,6 +5,9 @@ using terrain;
 public class PlayerManager : MonoBehaviour {
 	public float speed;	
 	private Rigidbody2D rb2d;
+
+	const int jump = 7;
+
 	//chunk number
 	public int x = 0;
 	public int y = 0;
@@ -29,11 +32,15 @@ public class PlayerManager : MonoBehaviour {
 	{
 		//move
 		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		float moveVertical = 0;//Input.GetAxis ("Vertical");
+		
+		if (Input.GetKeyDown ("space")) {
+			moveVertical = jump;
+		}
 
 		Vector2 mouvement = new Vector2 (moveHorizontal, moveVertical);
 		mouvement *= speed;
-		rb2d.velocity = mouvement;
+		rb2d.velocity += mouvement;
 
 		//check position
 		Vector2 pos = rb2d.position;
